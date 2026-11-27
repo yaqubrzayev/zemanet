@@ -7,37 +7,38 @@
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:"Times New Roman",Times,serif;background:#e9e9e9;color:#000}
-.top{background:#111;color:#fff;padding:12px 16px;font-weight:700;font-size:14px;font-family:Arial,sans-serif}
-.wrap{display:flex;gap:16px;padding:16px;align-items:flex-start;justify-content:center}
-.form{background:#fff;padding:18px;border-radius:12px;width:340px;flex-shrink:0;font-family:Arial,sans-serif}
-.form h2{margin:0 0 10px;font-size:18px}
-label{font-size:13px;font-weight:700;display:block;margin-top:12px}
-input,select{width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;margin-top:5px;font-size:15px}
-.btn{width:100%;padding:12px;border:0;border-radius:10px;background:#e4002b;color:#fff;font-weight:700;font-size:16px;margin-top:16px;cursor:pointer}
+.top{background:#111;color:#fff;padding:10px 14px;font-weight:700;font-size:13px;font-family:Arial,sans-serif}
+.wrap{display:flex;gap:14px;padding:14px;align-items:flex-start;justify-content:center}
+.form{background:#fff;padding:16px;border-radius:12px;width:320px;flex-shrink:0;font-family:Arial,sans-serif}
+.form h2{margin:0 0 8px;font-size:17px}
+label{font-size:12px;font-weight:700;display:block;margin-top:10px}
+input,select{width:100%;padding:9px;border:1px solid #ccc;border-radius:8px;margin-top:4px;font-size:14px}
+.btn{width:100%;padding:11px;border:0;border-radius:10px;background:#e4002b;color:#fff;font-weight:700;font-size:15px;margin-top:14px;cursor:pointer}
 .btn2{background:#111}
-/* A4 */
-.paper{background:#fff;width:210mm;height:297mm;padding:11mm 20mm 9mm 20mm;font-size:10.5pt;line-height:1.28;overflow:hidden;flex-shrink:0}
-.paper h1{text-align:center;font-size:18pt;font-weight:700;margin:0 0 11px 0;letter-spacing:1px}
-.paper p{margin:0 0 10px 0;text-align:justify}
+/* A4 - 1 SEHIFE */
+.paper{background:#fff;width:210mm;height:297mm;padding:8mm 18mm 5mm 18mm;font-size:10pt;line-height:1.22;overflow:hidden;flex-shrink:0}
+.paper h1{text-align:center;font-size:17pt;font-weight:700;margin:0 0 7px 0;letter-spacing:1px}
+.paper p{margin:0 0 7px 0;text-align:justify}
 .paper .b{font-weight:700}
-.paper .indent{padding-left:18px}
-.fill{font-weight:700;border-bottom:1px solid #000;padding:0 6px;min-width:80px;display:inline-block;text-align:center}
-.sign{margin-top:14px}
-.sign .line{border-bottom:1px solid #000;height:12px;width:330px;display:inline-block;vertical-align:bottom;margin-left:4px}
-.sign .under{margin-top:1px}
-.logo-row{display:flex;justify-content:flex-end;margin:1px 0 0 0}
-.logo-row img{width:168px;height:34px;display:block}
-.info p{margin:0 0 11px 0}
-.addr{margin-top:14px}
-.addr p{margin:0 0 1px 0;text-align:left}
+.paper .indent{padding-left:16px}
+.fill{font-weight:700;border-bottom:1px solid #000;padding:0 5px;min-width:70px;display:inline-block;text-align:center}
+.sign{margin-top:9px}
+.sign .line{border-bottom:1px solid #000;height:11px;width:320px;display:inline-block;vertical-align:bottom;margin-left:4px}
+.sign .under{margin-top:0}
+.logo-row{display:flex;justify-content:flex-end;margin:0}
+.logo-row img{width:150px;height:30px;display:block}
+.info{margin-top:4px}
+.info p{margin:0 0 7px 0}
+.addr{margin-top:8px}
+.addr p{margin:0;text-align:left;line-height:1.3}
 .addr b{font-weight:700}
-@media(max-width:900px){.wrap{flex-direction:column}.form{width:100%}.paper{width:100%;height:auto;padding:14px 16px}.sign .line{width:200px}}
+@media(max-width:900px){.wrap{flex-direction:column}.form{width:100%}.paper{width:100%;height:auto;padding:12px 14px}.sign .line{width:200px}}
 @page{size:A4;margin:0}
 @media print{
-body{background:#fff}
+html,body{margin:0!important;padding:0!important;background:#fff!important;height:297mm!important;overflow:hidden!important}
 .top,.form{display:none!important}
-.wrap{display:block;padding:0;margin:0}
-.paper{width:210mm;height:297mm;padding:11mm 20mm 9mm 20mm;margin:0;overflow:hidden}
+.wrap{display:block!important;padding:0!important;margin:0!important;height:297mm!important;overflow:hidden!important}
+.paper{width:210mm!important;height:297mm!important;max-height:297mm!important;padding:8mm 18mm 5mm 18mm!important;margin:0!important;overflow:hidden!important;page-break-after:avoid!important}
 }
 </style>
 </head>
@@ -56,7 +57,7 @@ body{background:#fff}
 <select id="muddet" onchange="upd()"><option>12 ay</option><option>24 ay</option><option>36 ay</option><option>6 ay</option></select>
 <button class="btn" onclick="window.print()">🖨️ Çap et / PDF</button>
 <button class="btn btn2" onclick="temizle()">Təmizlə</button>
-<p style="font-size:12px;color:#555;margin-top:10px">Çapda: A4 seç, Margin: None seç, 1 səhifə çıxacaq.</p>
+<p style="font-size:12px;color:#555;margin-top:10px">Çapda: A4, Margins: None, Scale: 100% — 1 səhifə çıxmalıdır.</p>
 </div>
 <div class="paper">
 <h1>ZƏMANƏT TALONU</h1>
