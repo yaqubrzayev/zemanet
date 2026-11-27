@@ -1,17 +1,80 @@
-<!DOCTYPE html><html lang="az"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zəmanət Talonu</title>
-<style>body{margin:0;font-family:Arial;background:#f1f1f1;padding:14px}.box{max-width:700px;margin:auto;background:#fff;padding:20px;border-radius:14px}h1{text-align:center}.line{border:1px dashed #999;padding:12px;border-radius:9px;margin:6px 0;min-height:22px}button{width:100%;padding:13px;border:0;border-radius:10px;background:#e4002b;color:#fff;font-weight:bold;font-size:16px}</style></head>
-<body><div class="box">
-<h2 style="text-align:center;color:#e4002b">K kontakt home</h2><h1>ZƏMANƏT TALONU</h1>
-<p>Xanaların üstünə basıb birbaşa yaz:</p>
-<p><b>Satıcı Ad Soyad:</b></p><div class="line" contenteditable="true">Yaqub Rzayev</div>
-<p><b>Müştəri Ad Soyad:</b></p><div class="line" contenteditable="true">Bura yaz</div>
-<p><b>Məhsul / Model:</b></p><div class="line" contenteditable="true">Bura yaz</div>
-<p><b>Seriya / S/N:</b></p><div class="line" contenteditable="true">Bura yaz</div>
-<p><b>Alış Tarixi:</b></p><div class="line" contenteditable="true">27.11.2026</div>
-<p><b>Zəmanət Müddəti:</b></p><div class="line" contenteditable="true">12 ay</div>
-<p><b>Sənəd No:</b></p><div class="line" contenteditable="true">001</div>
-<p>Zəmanət talonunun şərtləri ilə tanış oldum və heç bir iradım yoxdur.</p>
-<p>Satıcı imza: __________ &nbsp; Alıcı imza: __________</p>
-<p><b>Servis:</b> Reset 20 Yanvar, Reset Qara Qarayev, *2212</p>
-<button onclick="window.print()">Çap et / PDF</button>
-</div></body></html>
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zəmanət Talonu - Kontakt Home</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#e9e9e9}
+.top{background:#111;color:#fff;padding:12px 16px;font-weight:bold}
+.wrap{display:flex;gap:16px;padding:16px;align-items:flex-start;justify-content:center}
+.form{background:#fff;padding:18px;border-radius:12px;width:340px;flex-shrink:0}
+label{font-size:13px;font-weight:bold;display:block;margin-top:12px}
+input,select{width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;margin-top:5px;font-size:15px}
+.btn{width:100%;padding:12px;border:0;border-radius:10px;background:#e4002b;color:#fff;font-weight:bold;font-size:16px;margin-top:16px;cursor:pointer}
+.btn2{background:#111}
+.paper{background:#fff;width:794px;max-width:100%;padding:38px 48px 30px;font-size:14px;line-height:1.5;color:#111}
+.paper h1{text-align:center;font-size:26px;margin:0 0 16px;letter-spacing:1px}
+.paper p{margin:8px 0} .b{font-weight:bold}
+.fill{font-weight:bold;border-bottom:1px solid #111;padding:0 6px;min-width:100px;display:inline-block}
+.sign{margin-top:24px} .line{border-bottom:1px solid #111;height:20px;width:420px;max-width:100%}
+.footer{display:flex;justify-content:space-between;align-items:flex-end}
+.logo{color:#e4002b;font-weight:900;font-size:28px} .logo span{color:#111;font-size:24px}
+@media(max-width:900px){.wrap{flex-direction:column}.form{width:100%}}
+@media print{body{background:#fff}.top,.form{display:none!important}.wrap{padding:0}.paper{width:100%;padding:0}}
+</style>
+</head>
+<body>
+<div class="top">ZƏMANƏT TALONU • Kontakt Home</div>
+<div class="wrap">
+<div class="form">
+<h2 style="margin:0 0 10px">✍️ Məlumatları yaz</h2>
+<label>Satıcı Ad Soyad</label><input id="satici" placeholder="Yaqub Rzayev" oninput="upd()">
+<label>Müştəri Ad Soyad</label><input id="musteri" placeholder="Məs: Bayram" oninput="upd()">
+<label>Model / Məhsul</label><input id="model" placeholder="Məs: Beko" oninput="upd()">
+<label>S/N</label><input id="sn" placeholder="Məs: 125565" oninput="upd()">
+<label>Tarix</label><input type="date" id="tarix" oninput="upd()">
+<label>№</label><input id="no" placeholder="Məs: 001" oninput="upd()">
+<label>Zəmanət Müddəti</label><select id="muddet" onchange="upd()"><option>12 ay</option><option>24 ay</option><option>36 ay</option><option>6 ay</option></select>
+<button class="btn" onclick="window.print()">🖨️ Çap et / PDF</button>
+<button class="btn btn2" onclick="temizle()">Təmizlə</button>
+<p style="font-size:12px;color:#666">Yazdıqca aşağıdakı talonda görünür.</p>
+</div>
+<div class="paper">
+<h1>ZƏMANƏT TALONU</h1>
+<p>Zəmanət müddəti ərzində malda istehsalçı tərəfindən buraxılan qüsur aşkarlandığı halda, həmin qüsurlu mal Azərbaycan Respublikasının “İstehlakçıların Hüquqlarının Müdafiəsi Haqqında” qanununun tələblərini nəzərə alaraq malda yaranan qüsurun səbəbini müəyyənləşdirmək üçün “Texniki Servis” tərəfindən qəbul edilir.</p>
+<p><span class="b">▪ “Texniki servis” aşağıda göstərilən hallarda qüsurun səbəbini müəyyənləşdirmək üçün malı qəbul edir:</span><br>- İstehlakçı müvafiq qaydada doldurulmuş, satıcının imza və ştampı ilə təsdiq edilmiş həmin mala aid “Zəmanət talonu”nu təqdim etdikdə;<br>- Malın “Kontakt Home” şəbəkəsindən alındığını təsdiq edən sənəd (qaimə, qəbz və s.) təqdim etdikdə.</p>
+<p><span class="b">▪ “Texniki servis” aşağıda göstərilən hallarda “Zəmanət talonu” çərçivəsində xidməti ödənişsiz göstərir:</span><br>- Müəyyən olsa ki, qüsur istehsalçı tərəfindən buraxılıb;<br>- Müəyyən olmuş qüsur həmin malın zəmanət müddətində aşkarlanıb.</p>
+<p><span class="b">▪ “Zəmanət talonu”nin tərtib olmadığı və təmirin ödənişli həyata keçirildiyi hallar:</span><br>- Müəyyən olsa ki, malda qüsur istehlakçı tərəfindən yaranıb, yəni mexaniki zədələr, səhlənkar münasibət, malın düzgün istismar edilməməsi, saxlanması, daşınma qaydalarının pozulması, texniki şərtlərin, təhlükəsizlik tələblərinin pozulması və elektrik şəbəkəsində gərginliyin qeyri-standart olması, yad cismin cihaza düşməsi, yanğın, subasma və digər qarşısıalınmaz qüvvələrin təsiri həmçinin səlahiyyətləri olmayan şəxslər tərəfindən malda təmir işləri aparma (müdaxilə olunma) nəticəsində, belə halda “Zəmanət talonu” tərtib olunmur və təmir ödənişli şəkildə həyata keçirilir. İstehlakçı tərəfdən yaranan qüsura görə “Kontakt Home” heç bir məsuliyyət daşımır;<br>- Malın üzərində və zəmanət talonunda qeyd olunan modelin, IMEI kodlarının və seriya nömrələrinin uyğun gəlmədiyi, dəyişdirildiyi, silindiyi, zədələndiyi hallarda.</p>
+<p><span class="b">▪ “Zəmanət talonu” icrasının müddəti:</span><br>- Təmir işləri 14 gün müddətində həyata keçirilir. Bu müddətə qeyri-iş günü hesab edilən bayram günləri daxil deyil.<br>- Təmir zamanı malda qüsurlu hissələrin (detalların, qovşaqların, yığım vahidlərinin) dəyişdirilməsi, malın bütövlükdə zəmanət müddətinin yenidən başlanması anlamına gətirmir.</p>
+<p><span class="b">▪ “Zəmanət talonu” adı sadalanan detallara şamil olunmur:</span><br>- Malın tərtibat və korpus hissələrinə;<br>- Batareya və akkumulyatorlara;<br>- Komplektləşdirici hissələrə, birləşdirici kabellərə, sərfiyyat detallarına və digər aksessuarlara;<br>- Şəxsi (məişət, ailə) ehtiyaclar üçün nəzərdə tutulmuş məhsul sahibkarlıq (ticarət) fəaliyyəti nəticəsində zədələnəndə.</p>
+<p><span class="b">Qeyd:</span><br>1. Satıcı, istehlakçının malın istifadəsi zamanı hər hansı bir konfidensial və ya şəxsi məlumatlarının itirilməsinə görə məsuliyyət daşımır;<br>2. İcraçı (Satıcı tərəfindən avtorizə olunmuş texniki servis mərkəzi), mala dair servis xidməti göstərilən zaman İstehlakçıya aid hər hansı bir konfidensial və ya şəxsi məlumatların itirilməsinə görə məsuliyyət daşımır;<br>3. Malın zəmanət müddəti <span class="fill" id="f_muddet">___</span> -dir.</p>
+<p>Zəmanət talonlarının şərtləri ilə tanış oldum və heç bir iradım yoxdur.</p>
+<div class="sign">İmza: <div class="line"></div>Müştəri Xidmətləri Şöbəsi / Satıcı <span id="f_satici"></span></div>
+<div class="sign">İmza: <div class="line"></div>Alıcı <span id="f_musteri"></span></div>
+<div class="footer" style="margin-top:18px">
+<div>
+<p><b>Tarix: <span class="fill" id="f_tarix">__ / __ / ____</span> / №: <span class="fill" id="f_no">___</span></b></p>
+<p><b>Model: <span class="fill" id="f_model">___</span></b></p>
+<p><b>S/N: <span class="fill" id="f_sn">___</span></b></p>
+<p style="margin-top:14px"><b>Texniki servisin ünvanı:</b><br>• Reset 20 yanvar (Melissa Park) filialı Həsənbəy Zərdabi 202a<br>• Reset Qara Qarayev filialı Şirin Mirzəyev küç 61<br>• Ümumi servis nömrəsi isə *2212</p>
+</div>
+<div class="logo">K <span>kontakt home</span></div>
+</div>
+</div>
+</div>
+<script>
+function upd(){
+  document.getElementById('f_satici').textContent = document.getElementById('satici').value ? ' - ' + document.getElementById('satici').value : '';
+  document.getElementById('f_musteri').textContent = document.getElementById('musteri').value ? ' - ' + document.getElementById('musteri').value : '';
+  document.getElementById('f_model').textContent = document.getElementById('model').value || '___';
+  document.getElementById('f_sn').textContent = document.getElementById('sn').value || '___';
+  let t=document.getElementById('tarix').value; if(t){let d=new Date(t); document.getElementById('f_tarix').textContent = String(d.getDate()).padStart(2,'0')+'.'+String(d.getMonth()+1).padStart(2,'0')+'.'+d.getFullYear();} else document.getElementById('f_tarix').textContent='__ / __ / ____';
+  document.getElementById('f_no').textContent = document.getElementById('no').value || '___';
+  document.getElementById('f_muddet').textContent = document.getElementById('muddet').value;
+}
+function temizle(){document.querySelectorAll('input').forEach(e=>e.value='');upd();}
+upd();
+</script>
+</body>
+</html>
